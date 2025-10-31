@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envíos Nacionales | TuPaquetería</title>
+    <meta name="description" content="Servicio de envíos nacionales, rastreo de guías, tarifas, cobertura y atención al cliente. Envíos rápidos y seguros.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* HEADER */
+        header {
+            background: #004aad;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+        .logo span { color: #fcd703; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover,
+        nav a.active {
+            color: #fcd703;
+        }
+
+        /* HERO */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1612484779834-fc2b1cb0a6e7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: #fcd703;
+            color: #004aad;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background: #ffdf33;
+        }
+
+        /* SECCIONES GENERALES */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            color: #004aad;
+            margin-bottom: 30px;
+        }
+        .services-container, .tarifas-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .service, .tarifa {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .service i {
+            font-size: 2.5em;
+            color: #004aad;
+            margin-bottom: 15px;
+        }
+
+        /* RASTREO */
+        .rastreo-section {
+            background: #eaf2ff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .rastreo-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .rastreo-form input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .rastreo-form button {
+            background: #004aad;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .rastreo-form button:hover {
+            background: #00337a;
+        }
+        #resultado-rastreo {
+            font-weight: 500;
+            color: #004aad;
+            margin-top: 10px;
+        }
+
+        /* CONTACTO */
+        .contact-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #004aad;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .socials a {
+            margin-right: 10px;
+            color: #004aad;
+            font-size: 1.3em;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #004aad;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #fcd703;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                background: #00337a;
+                display: none;
+            }
+            .services-container, .tarifas-container, .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">🚚 Tu<span>Paquetería</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#rastreo">Rastreo</a></li>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Envíos Nacionales Rápidos y Seguros</h1>
+            <p>Entregamos tus paquetes a cualquier rincón del país. Rastrea tus envíos en tiempo real.</p>
+            <a href="#rastreo" class="btn">Rastrea tu envío</a>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-container">
+            <div class="service">
+                <i class="fas fa-truck"></i>
+                <h3>Envíos Nacionales</h3>
+                <p>Transportamos tus paquetes de manera segura y rápida a todo el territorio nacional.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Rastreo de Guías</h3>
+                <p>Sigue tu paquete en tiempo real con nuestro sistema de rastreo avanzado.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-box"></i>
+                <h3>Paquetería Express</h3>
+                <p>Envíos urgentes con entrega garantizada en menos de 24 horas en zonas seleccionadas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RASTREO -->
+    <section id="rastreo" class="rastreo-section">
+        <h2>Rastrea tu Envío</h2>
+        <form class="rastreo-form" id="rastreoForm">
+            <input type="text" id="numeroGuia" placeholder="Ingresa tu número de guía" required>
+            <button type="submit">Rastrear</button>
+        </form>
+        <div id="resultado-rastreo"></div>
+    </section>
+
+    <!-- TARIFAS -->
+    <section id="tarifas" class="section">
+        <h2>Tarifas y Cobertura</h2>
+        <p>Calcula el costo de tu envío según peso y destino.</p>
+        <div class="tarifas-container">
+            <div class="tarifa">
+                <h3>Ligero</h3>
+                <p>Hasta 2kg</p>
+                <span>$89 MXN</span>
+            </div>
+            <div class="tarifa">
+                <h3>Mediano</h3>
+                <p>Hasta 5kg</p>
+                <span>$149 MXN</span>
+            </div>
+            <div class="tarifa">
+                <h3>Pesado</h3>
+                <p>Hasta 10kg</p>
+                <span>$199 MXN</span>
+            </div>
+        </div>
+        <a href="#contacto" class="btn">Cotiza tu envío</a>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact-section">
+        <h2>Contáctanos</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <textarea placeholder="Mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> 800 123 4567</p>
+                <p><i class="fas fa-envelope"></i> contacto@tupaqueteria.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> CDMX, México</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 TuPaquetería | Todos los derechos reservados</p>
+        <a href="#">Política de Privacidad</a> | 
+        <a href="#">Términos y Condiciones</a>
+    </footer>
+
+    <script>
+        // Simulador básico de rastreo
+        document.getElementById('rastreoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const numero = document.getElementById('numeroGuia').value.trim();
+            const resultado = document.getElementById('resultado-rastreo');
+            
+            if(numero === '') {
+                resultado.textContent = 'Por favor ingresa un número de guía válido.';
+                resultado.style.color = 'red';
+                return;
+            }
+
+            // Simula estados del envío
+            const estados = [
+                'Tu paquete está en tránsito 🚚',
+                'Tu paquete llegó al centro de distribución 🏢',
+                'Tu paquete está en reparto 📦',
+                'Tu paquete fue entregado ✅'
+            ];
+
+            const estadoAleatorio = estados[Math.floor(Math.random() * estados.length)];
+            resultado.style.color = '#004aad';
+            resultado.textContent = `Guía ${numero}: ${estadoAleatorio}`;
+        });
+    </script>
+</body>
+</html>
